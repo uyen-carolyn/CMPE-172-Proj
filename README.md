@@ -1,4 +1,3 @@
-# CMPE-172-Proj
 # San Jose State University
 ## Enterprise Software - CMPE 172 / Spring 2020
 ## Team Members: Uyen Nguyen, Dung Pham, Sara Aktar
