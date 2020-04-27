@@ -1,306 +1,456 @@
 <!DOCTYPE html>
-<html>
-<title>Database</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-</style>
-<body class="w3-light-grey">
+<html lang="en">
+<head>
+  <title>Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      overflow: hidden;
+    }
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
 
-<!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">Logo</span>
-</div>
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 730px;
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
-  <div class="w3-container w3-row">
-    <div class="w3-col s4">
-      <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+    }
+
+    .nav-pills>li>a {
+      color: black;
+    }
+
+    .nav-pills>li.active>a {
+      background-color: #3EB489;
+    }
+
+    .nav-pills>li.active>a:hover {
+      background-color: #3EB489;
+      opacity: 0.8;
+    }
+
+    .nav-pills>li>a:hover {
+      background-color: #E5DED4;
+    }
+
+    .col-sm-8 {
+      width: 1150px;
+    }
+
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;}
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: white;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+      text-align: center;
+    }
+
+    /*tr:nth-child(even){background-color: #f2f2f2}*/
+
+    th {
+      background-color: #9B835E;
+      color: white;
+    }
+    td {
+      border-left: 1px solid #9B835E;
+    }
+    td:first-child { border-left: none; }
+
+    tr {
+      border-bottom: 1px solid #9B835E;
+    }
+    tr:last-child {border-bottom: none; }
+
+    .scrollthis {
+    overflow-y:scroll;
+    height:175px;
+    }
+
+      /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: none;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 20px auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+/* Full-width inputs */
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: ##3EB489;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: auto;
+  padding: 10px 18px;
+}
+
+.options {
+  background-color: #3EB489;
+  margin-right: 10px;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse visible-xs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
     </div>
-    <div class="w3-col s8 w3-bar">
-      <span>Welcome, <strong>[Usename]</strong></span><br>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li><a href="home.html">Logout</a></li>
+        <li><a href="https://github.com/uyen-carolyn/CMPE-172-Proj">Repository</a></li>
+      </ul>
     </div>
-  </div>
-  <hr>
-  <div class="w3-container">
-    <h5>Dashboard</h5>
-  </div>
-  <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>
   </div>
 </nav>
 
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <h2>Forever Friends</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Dashboard</a></li>
+        <li><a href="#section2">About Us</a></li>
+        <li><a href="#section3">Logout</a></li>
+        <li><a href="https://github.com/uyen-carolyn/CMPE-172-Proj">Repository</a></li>
+      </ul><br>
+    </div>
+    <br>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
-
-  <!-- Header -->
-  <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
-  </header>
-
-  <div class="w3-row-padding w3-margin-bottom">
-    <div class="w3-quarter">
-      <div class="w3-container w3-red w3-padding-16">
-        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>52</h3>
+    <div class="col-sm-9" style="margin-top: -15px;">
+      <div class="well" style="background-color: #3EB489">
+        <h4 style="color: white">Analytics</h4>
+        <div class="analyze" style="height:300px !important;">
+          <!--p>The graph to show analytics will go in this div here.</p-->
+          <div class="col-sm-4">
+          <div class="well" style="padding-bottom: 30px;">
+            <h4>Most Common Breed Coming In Today: </h4>
+            <p>Terrier</p>
+            <h4>2nd Most Common Breed Coming In Today:</h4>
+            <p>Husky</p>
+            <h4>3rd Most Common Breed Coming In Today:</h4>
+            <p>Pitbulls.</p>
+          </div>
         </div>
-        <div class="w3-clear"></div>
-        <h4>Messages</h4>
-      </div>
-    </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-blue w3-padding-16">
-        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>99</h3>
+        <div class="col-sm-4" style="text-align: center">
+          <div class="well" style="width:690px;">
+            <h4>Our Shelter Dog of the Day!</h4>
+            <img src="images/analytics-example.png" alt="Boston Terrier" height="150px">
+            <h4>Pierre the Boston Terrier</h4>
+            <p>Pierre loves the beach and his favorite stuffed bear Marbles!</p>
+          </div>
         </div>
-        <div class="w3-clear"></div>
-        <h4>Views</h4>
-      </div>
-    </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-teal w3-padding-16">
-        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>23</h3>
         </div>
-        <div class="w3-clear"></div>
-        <h4>Shares</h4>
       </div>
-    </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-orange w3-text-white w3-padding-16">
-        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>50</h3>
+      <div class="row">
+        <div class="col-sm-8" style="margin-top: 0px;">
+          <div class="well">
+            <h4>Database</h4>
+            <button class="options" id="myBtnA">Add Dog</button>
+            <button class="options" id="myBtnB">Remove Dog</button>
+
+            <!-- The Modal -->
+              <div id="myModalA" class="modal">
+              <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close closeA">&times;</span>
+                  <form action="action_page.php" method="post">
+                    <div class="container">
+                      <label for="uname"><b>Dog Name</b></label>
+                      <input type="text" placeholder="Enter Name" name="uname" required>
+
+                      <label for="breed"><b>Dog Breed</b></label>
+                      <input type="text" placeholder="Enter Breed" name="breed" required>
+
+                      <label for="age"><b>Dog Age</b></label>
+                      <input type="text" placeholder="Enter Age" name="age">
+
+                      <label for="uname"><b>Dog Gender</b></label>
+                      <br>
+                      <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male">Male</label><br>
+                      <input type="radio" id="female" name="gender" value="female" required>
+                        <label for="female">Female</label><br>
+                      <br>
+
+                      <label for="uname"><b>Check-in Date</b></label>
+                      <br>
+                      <input type="date" placeholder="Enter Date" name="date" required>
+                      <br>
+                      <br>
+
+                      <label for="uname"><b>Additional Comments</b></label>
+                      <br>
+                      <input type="text" placeholder="Enter Comments" name="comments">
+
+                    </div>
+
+                    <div class="container" style="background-color:#f1f1f1">
+                       <button type="button" onclick="document.getElementById('myModalA').style.display='none'" class="cancelbtn">Cancel</button>
+                       <button type="submit"class="options" style="float: right; margin-right: 5px;">Add Dog</button>
+                    </div>
+                  </form>
+                </div>
+            </div>
+            <div id="myModalB" class="modal">
+            <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close closeB">&times;</span>
+                <p>Remove dog here</p>
+              </div>
+          </div>
+
+            <div class="scrollthis">
+            <table class="data">
+              <tr>
+                <th>Name</th>
+                <th>Breed</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Date Checked In</th>
+                <th>Comments</th>
+              </tr>
+              <tr>
+                <td>Lucy</td>
+                <td>Husky</td>
+                <td>3 years</td>
+                <td>Female</td>
+                <td>4-11-20</td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td>Pierre</td>
+                <td>Terrier</td>
+                <td>7 months</td>
+                <td>Male</td>
+                <td>2-27-20</td>
+                <td>Needs vacinations</td>
+              </tr>
+              <tr>
+                <td>Ricky</td>
+                <td>Pitbull</td>
+                <td>1 year</td>
+                <td>Male</td>
+                <td>3-04-20</td>
+                <td>Needs to be neutered</td>
+              </tr>
+              <tr>
+                <td>Regina</td>
+                <td>Poodle</td>
+                <td>11 months</td>
+                <td>Female</td>
+                <td>2-23-20</td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td>Bluebell</td>
+                <td>Terrier</td>
+                <td>3 months</td>
+                <td>Female</td>
+                <td>2-27-20</td>
+                <td>Needs vacinations</td>
+              </tr>
+              <tr>
+                <td>Echo</td>
+                <td>Husky</td>
+                <td>5 years</td>
+                <td>Male</td>
+                <td>5-01-20</td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td>Goofy</td>
+                <td>Terrier</td>
+                <td>2 years</td>
+                <td>Male</td>
+                <td>2-27-20</td>
+                <td>Needs vacinations</td>
+              </tr>
+              <tr>
+                <td>Farrah</td>
+                <td>Pitbull</td>
+                <td>2 years</td>
+                <td>Female</td>
+                <td>2-15-20</td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td>Lucas</td>
+                <td>Terrier</td>
+                <td>5 years</td>
+                <td>Male</td>
+                <td>1-23-20</td>
+                <td>Needs to be spayed</td>
+              </tr>
+              <tr>
+                <td>Sopha</td>
+                <td>Great Daner</td>
+                <td>2 years</td>
+                <td>Female</td>
+                <td>2-27-20</td>
+                <td>Needs vacinations</td>
+              </tr>
+              <tr>
+                <td>Miska</td>
+                <td>Husky</td>
+                <td>5 months</td>
+                <td>Female</td>
+                <td>2-27-20</td>
+                <td>Needs vacinations</td>
+              </tr>
+            </table>
+          </div>
+
+          </div>
         </div>
-        <div class="w3-clear"></div>
-        <h4>Users</h4>
       </div>
     </div>
   </div>
-
-  <div class="w3-panel">
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third">
-        <h5>Regions</h5>
-        <img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map">
-      </div>
-      <div class="w3-twothird">
-        <h5>Feeds</h5>
-        <table class="w3-table w3-striped w3-white">
-          <tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-            <td>New record, over 90 views.</td>
-            <td><i>10 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-            <td>Database error.</td>
-            <td><i>15 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>New record, over 40 users.</td>
-            <td><i>17 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
-            <td>New comments.</td>
-            <td><i>25 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
-            <td>Check transactions.</td>
-            <td><i>28 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
-            <td>CPU overload.</td>
-            <td><i>35 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-            <td>New shares.</td>
-            <td><i>39 mins</i></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-  <hr>
-  <div class="w3-container">
-    <h5>General Stats</h5>
-    <p>New Visitors</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
-    </div>
-
-    <p>New Users</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
-    </div>
-
-    <p>Bounce Rate</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
-    </div>
-  </div>
-  <hr>
-
-  <div class="w3-container">
-    <h5>Countries</h5>
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-      <tr>
-        <td>United States</td>
-        <td>65%</td>
-      </tr>
-      <tr>
-        <td>UK</td>
-        <td>15.7%</td>
-      </tr>
-      <tr>
-        <td>Russia</td>
-        <td>5.6%</td>
-      </tr>
-      <tr>
-        <td>Spain</td>
-        <td>2.1%</td>
-      </tr>
-      <tr>
-        <td>India</td>
-        <td>1.9%</td>
-      </tr>
-      <tr>
-        <td>France</td>
-        <td>1.5%</td>
-      </tr>
-    </table><br>
-    <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
-  </div>
-  <hr>
-  <div class="w3-container">
-    <h5>Recent Users</h5>
-    <ul class="w3-ul w3-card-4 w3-white">
-      <li class="w3-padding-16">
-        <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
-        <span class="w3-xlarge">Mike</span><br>
-      </li>
-      <li class="w3-padding-16">
-        <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
-        <span class="w3-xlarge">Jill</span><br>
-      </li>
-      <li class="w3-padding-16">
-        <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
-        <span class="w3-xlarge">Jane</span><br>
-      </li>
-    </ul>
-  </div>
-  <hr>
-
-  <div class="w3-container">
-    <h5>Recent Comments</h5>
-    <div class="w3-row">
-      <div class="w3-col m2 text-center">
-        <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px">
-      </div>
-      <div class="w3-col m10 w3-container">
-        <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
-        <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
-      </div>
-    </div>
-
-    <div class="w3-row">
-      <div class="w3-col m2 text-center">
-        <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px">
-      </div>
-      <div class="w3-col m10 w3-container">
-        <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
-        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
-      </div>
-    </div>
-  </div>
-  <br>
-  <div class="w3-container w3-dark-grey w3-padding-32">
-    <div class="w3-row">
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-green">Demographic</h5>
-        <p>Language</p>
-        <p>Country</p>
-        <p>City</p>
-      </div>
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-red">System</h5>
-        <p>Browser</p>
-        <p>OS</p>
-        <p>More</p>
-      </div>
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-orange">Target</h5>
-        <p>Users</p>
-        <p>Active</p>
-        <p>Geo</p>
-        <p>Interests</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="w3-container w3-padding-16 w3-light-grey">
-    <h4>FOOTER</h4>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-  </footer>
-
-  <!-- End page content -->
 </div>
 
+</body>
 <script>
-// Get the Sidebar
-var mySidebar = document.getElementById("mySidebar");
+// Get the modal
+var modalA = document.getElementById("myModalA");
+var modalB = document.getElementById("myModalB");
 
-// Get the DIV with overlay effect
-var overlayBg = document.getElementById("myOverlay");
+// Get the button that opens the modal
+var btn1 = document.getElementById("myBtnA");
+var btn2 = document.getElementById("myBtnB");
 
-// Toggle between showing and hiding the sidebar, and add overlay effect
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-    overlayBg.style.display = "none";
-  } else {
-    mySidebar.style.display = 'block';
-    overlayBg.style.display = "block";
+// Get the <span> element that closes the modal
+var spanA = document.getElementsByClassName("closeA")[0];
+var spanB = document.getElementsByClassName("closeB")[0];
+
+
+// When the user clicks on the button, open the modal
+btn1.onclick = function() {
+  modalA.style.display = "block";
+}
+btn2.onclick = function() {
+  modalB.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+spanA.onclick = function() {
+  modalA.style.display = "none";
+}
+
+spanB.onclick = function() {
+  modalB.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modalA) {
+    modalA.style.display = "none";
+  }
+  else if (event.target == modalB) {
+    modalB.style.display = "none";
   }
 }
-
-// Close the sidebar with the close button
-function w3_close() {
-  mySidebar.style.display = "none";
-  overlayBg.style.display = "none";
-}
 </script>
-
-</body>
 </html>
