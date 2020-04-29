@@ -20,38 +20,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="home.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
     <!--a href="login.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a-->
-    <a data-toggle="modal" href="#myModal" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" onclick="document.getElementById('myModal').style.display='block'">Login</a>
+    <a href="login.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
+    <a href="register.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Sign Up</a>
   </div>
 
 <!-- Modal Code-->
-  <div id="myModal" class="modal">
-    <span onclick="document.getElementById('myModal').style.display='none'"class="close" title="Close Modal">&times;</span>
-
-    <!-- Modal Content -->
-    <form class="modal-content animate" action="/action_page.php">
-      <div class="imgcontainer">
-        <img src="images/login-avatar.jpg" alt="Avatar" class="avatar">
-      </div>
-
-      <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-
-        <button type="submit">Login</button>
-        <label>
-          <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
-      </div>
-
-      <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick="document.getElementById('myModal').style.display='none'" class="cancelbtn">Cancel</button>
-        <span class="psw">New user? <a href="register.html">Sign Up Here</a></span>
-      </div>
-    </form>
-  </div>
 
   <style>
   /* Bordered form */
