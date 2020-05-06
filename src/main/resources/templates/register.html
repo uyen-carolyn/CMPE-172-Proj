@@ -1,16 +1,21 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+  <link rel="icon" href="../../../../images/favicon.ico" />
+</head>
 <style>
-body {font-family: Arial, Helvetica, sans-serif; background-color: #E5DED4;}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #85CBD1;
+  overflow: hidden;
+}
 * {box-sizing: border-box}
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=date] {
   width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
+  padding: 10px;
+  margin: 5px 0 15px 0;
   display: inline-block;
   border: none;
   background: #f1f1f1;
@@ -25,41 +30,63 @@ hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
-
 /* Set a style for all buttons */
 button {
-  background-color: #4CAF50;
+  background-color: #551A8B;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
-  opacity: 0.9;
+  opacity: 1;
 }
 
-button:hover {
-  opacity:1;
+button:hover, input[type=reset]:hover {
+  opacity:0.8;
 }
 
-/* Extra styles for the cancel button */
-.cancelbtn {
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn, input[type=reset] {
   padding: 14px 20px;
   background-color: #f44336;
 }
 
-/* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
-  float: left;
-  width: 50%;
+.signupbtn {
+  margin-left: 100px;
+  width: 75%;
+  height: 60px;
+  background-color: rgb(85 ,26 , 139);
+  font-size: 20px;
 }
 
+.cancelbtn, input[type=reset] {
+  border: none;
+  color: white;
+  width: 25%;
+}
+
+.cancelbtn {
+  float: left;
+}
+
+input[type=reset] {
+  float: right;
+  margin-top: 10px;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
 /* Add padding to container elements */
 .container {
-  padding: 20px;
+  padding: 10px;
   background-color: white;
+  height: 705px;
+  background-image: url("https://marketplace.canva.com/EAD29RnUHXo/2/0/1600w/canva-turquoise-dogs-and-paw-print-cute-zoom-virtual-background-6nPSmRqEqWw.jpg?fbclid=IwAR1npQsEdiRJkqjUwi536vIVGCEFUPIiLpz7uiNr0ZBrCRyQ7HKtTkluS0I");
 }
-
 /* Clear floats */
 .clearfix::after {
   content: "";
@@ -67,13 +94,20 @@ button:hover {
   display: table;
 }
 .registerform{
-	margin-left: 30%;
-	margin-right: 30%;
+  margin-top: -8px;
+  margin-left: 25%;
+  width: 800px;
+  height: 700px;
+  background-color: white;
+}
+
+.register {
+    padding: 10px;
+    height: 700px;
 }
 .clearfix{
-	margin-left:35%;
 	font-size:20px;
-	
+
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
@@ -83,40 +117,43 @@ button:hover {
   }
 }
 </style>
-</head>
 
 <body>
 
    <div class="container" >
   		 <div class="registerform">
-			<form style="border:1px solid #ccc" action="#" th:action="@{/dog/save}" th:object="${dog}" method="post"
+			<form class = "register" style="border:1px solid #ccc" action="#" th:action="@{/dog/save}" th:object="${dog}" method="post"
 				  novalidate="novalidate">
-				<h3 >Fill in the form</h3>
+				<h2>Add Dog Form</h2>
 
 				<input type="hidden" th:field="*{id}" />
 
-				<label for="name"><b>Name</b></label>
-     		    <input type="text" placeholder="Enter Name" name="name" th:field="*{name}" />
-     			 
+				<label for="name"><b>Dog Name</b></label>
+     		    <input type="text" placeholder="Enter Name" name="name" th:field="*{name}"/>
+
      			<label for="breed"><b>Breed</b></label>
      			<input type="text" placeholder="Enter Breed" name="breed" th:field="*{breed}" />
-			
+
 			    <label for="age"><b>Age</b></label>
-			    <input type="text" placeholder="Enter Age" name="age" th:field="*{age}" />
-			
+			    <input type="text" placeholder="Enter Age" name="age" th:field="*{age}"/>
+
 			    <label for="gender"><b>Gender</b></label>
-			    <input type="text" placeholder="Enter Gender" name="gender" th:field="*{gender}" />
-			      
+			    <input type="text" placeholder="Enter Gender" name="gender" th:field="*{gender}"/>
+
 		        <label for="date"><b>Date</b></label>
-	     	    <input type="text" placeholder="Enter Date" name="date" th:field="*{date}" />
-			      
+	     	    <input type="date" placeholder="Enter Date" name="date" th:field="*{date}"/>
+
 			    <label for="comments"><b>Comments</b></label>
-			    <input type="text" placeholder="Enter comments" name="comments" th:field="*{comments}" />	
-				
+			    <input type="text" placeholder="Enter comments" name="comments" th:field="*{comments}" />
+
 				<div class="clearfix">
-					<button type="submit" class="signupbtn">Save</button>
+          <button type="submit" class="signupbtn">Submit</button>
 				</div>
-				
+        <div class="clearfix">
+          <button type="submit" class="cancelbtn"> <a href="#" th:href="@{/dog/}"> Cancel </a></button>
+          <input type="reset" value="Reset" />
+        </div>
+
 			</form>
 		</div>
 	</div>
