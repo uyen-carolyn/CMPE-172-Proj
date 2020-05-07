@@ -14,6 +14,9 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
 * Sequence Diagram
 ### Database Queries
 ### Midtier APIs
+1. Insert
+2. Delete
+3. Search 
 ### UI Data Transport
 * .xml
 * .json
