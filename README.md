@@ -13,10 +13,10 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
 
 
 ### Set-Up
-   Spring Tool Editor
-   MySQL WorkBrench
-   Database Schema testdb, username: root, password: key91191
-   Web browser: Google Chrome
+   - Spring Tool Editor
+   - MySQL WorkBrench
+   - Database Schema testdb, username: root, password: key91191
+   - Web browser: Google Chrome
 ### How To Run The Project
 # Clone this repository
 - cd Desktop
