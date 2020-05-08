@@ -24,10 +24,10 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
 ### Diagrams
 * UML Diagram
 
-
+![Screen Shot 2020-05-07 at 8 06 59 PM](https://user-images.githubusercontent.com/38672776/81365943-614ead00-909e-11ea-9d64-83f3b8643dc7.png)
 * Class Diagram
 * Sequence Diagram
-![alt text](images/Screen Shot 2020-05-05 at 10.45.26 PM.png "sequence dia")
+![Screen Shot 2020-05-05 at 10 45 26 PM](https://user-images.githubusercontent.com/38672776/81365901-3fedc100-909e-11ea-9ee6-6d522fdd5ffa.png)
 
 
 
