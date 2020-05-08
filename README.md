@@ -4,6 +4,7 @@
 ## Team 11 Members : Uyen Nguyen, Dung Pham, Sara Aktar
 ### Project Introduction
 Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog shelters struggle with housing dogs and getting them adopted quickly to do so. These shelters cannot make this process faster and easier if there are not enough resources. Sometimes, they lack the proper organization and structure to determine which dogs need to be adopted or which factors contribute to this process. Our project is to create a database and use its analytics to help these shelters. We will create a mock database that will analyze which dog breeds get entered into the system the most and which get adopted the most. Some dog shelters house more dogs of certain breeds, age, or gender than others; the same applies to adoption. Dog shelters will use the analytics of the database as a way to improve their adoption rates. Our project will incorporate concepts in Enterprise Software to create this solution. In specific, we will focus on which breed comes in the most as our analytics. 
+
 ### Demo Screenshots
 ![Screen Shot 2020-05-05 at 9 26 57 PM](https://user-images.githubusercontent.com/38672776/81365800-f8673500-909d-11ea-8b17-ace033382273.png)
 
@@ -13,6 +14,9 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
 
 ### Set-Up
    Spring Tool Editor
+   MySQL WorkBrench
+   Database Schema testdb, username: root, password: key91191
+   Web browser: Google Chrome
 ### How To Run The Project
 # Clone this repository
 - cd Desktop
@@ -21,7 +25,7 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
 - File--> Open file from..(Desktop/CMPE-172-Proj)
 - You show have your database schema and Dog table created.
 - Click Run As Spring Boot App
-- Go to localhost:8080/dog/ or localhost:8080/dog/add/
+- Go to Chrome and type localhost:8080/dog/ or localhost:8080/dog/add/
 ### Diagrams
 * UML Diagram
 
@@ -43,6 +47,67 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
 ### Midtier APIs
        CRUD
 ### UI Data Transport
-* .xml
-* .json
-* etc. 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.19.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.cmpe172</groupId>
+	<artifactId>dogshelter</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>dogshelter</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+
