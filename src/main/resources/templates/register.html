@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="icon" href="../../../../images/favicon.ico" />
+</head>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #85CBD1;
+  overflow: hidden;
+}
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=date] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+/* Set a style for all buttons */
+button {
+  background-color: #551A8B;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 1;
+}
+
+button:hover, input[type=reset]:hover {
+  opacity:0.8;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn, input[type=reset] {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+.signupbtn {
+  margin-left: 100px;
+  width: 75%;
+  height: 60px;
+  background-color: rgb(85 ,26 , 139);
+  font-size: 20px;
+}
+
+.cancelbtn, input[type=reset] {
+  border: none;
+  color: white;
+  width: 25%;
+}
+
+.cancelbtn {
+  float: left;
+}
+
+input[type=reset] {
+  float: right;
+  margin-top: 10px;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+/* Add padding to container elements */
+.container {
+  padding: 10px;
+  background-color: white;
+  height: 705px;
+  background-image: url("https://marketplace.canva.com/EAD29RnUHXo/2/0/1600w/canva-turquoise-dogs-and-paw-print-cute-zoom-virtual-background-6nPSmRqEqWw.jpg?fbclid=IwAR1npQsEdiRJkqjUwi536vIVGCEFUPIiLpz7uiNr0ZBrCRyQ7HKtTkluS0I");
+}
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.registerform{
+  margin-top: -8px;
+  margin-left: 25%;
+  width: 800px;
+  height: 700px;
+  background-color: white;
+}
+
+.register {
+    padding: 10px;
+    height: 700px;
+}
+.clearfix{
+	font-size:20px;
+
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+</style>
+
+<body>
+
+   <div class="container" >
+  		 <div class="registerform">
+			<form class = "register" style="border:1px solid #ccc" action="#" th:action="@{/dog/save}" th:object="${dog}" method="post"
+				  novalidate="novalidate">
+				<h2>Add Dog Form</h2>
+
+				<input type="hidden" th:field="*{id}" />
+
+				<label for="name"><b>Dog Name</b></label>
+     		    <input type="text" placeholder="Enter Name" name="name" th:field="*{name}"/>
+
+     			<label for="breed"><b>Breed</b></label>
+     			<input type="text" placeholder="Enter Breed" name="breed" th:field="*{breed}" />
+
+			    <label for="age"><b>Age</b></label>
+			    <input type="text" placeholder="Enter Age" name="age" th:field="*{age}"/>
+
+			    <label for="gender"><b>Gender</b></label>
+			    <input type="text" placeholder="Enter Gender" name="gender" th:field="*{gender}"/>
+
+		        <label for="date"><b>Date</b></label>
+	     	    <input type="date" placeholder="Enter Date" name="date" th:field="*{date}"/>
+
+			    <label for="comments"><b>Comments</b></label>
+			    <input type="text" placeholder="Enter comments" name="comments" th:field="*{comments}" />
+
+				<div class="clearfix">
+          <button type="submit" class="signupbtn">Submit</button>
+				</div>
+        <div class="clearfix">
+          <button type="submit" class="cancelbtn"> <a href="#" th:href="@{/dog}"> Cancel </a></button>
+          <input type="reset" value="Reset" />
+        </div>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>
