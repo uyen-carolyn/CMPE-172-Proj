@@ -45,56 +45,10 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
 ![Screen Shot 2020-05-07 at 8 09 03 PM](https://user-images.githubusercontent.com/38672776/81366069-ab379300-909e-11ea-8511-3bb3b0a30d03.png)
 
 ### Midtier APIs
-       Create
-       Update
-       Delete
-       Search
+ - Client: Thymeleaf, CSS, JS
+ - Apllication: SpringBoot, Java
+ - Database: AWS, Docker
 ### UI Data Transport
 
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
-</project>
 
