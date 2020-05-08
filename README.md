@@ -18,8 +18,8 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
    - Database Schema testdb, username: root, password: key91191
    - Web browser: Google Chrome
 ### How To Run The Project
-# Clone this repository
-- cd Desktop
+- On your termial
+- cd Desktop(where you save the project folder source)
 - git clone https://github.com/uyen-carolyn/CMPE-172-Proj.git
 - Open your Spring Tool Editor(you can install any supported Spring editor )
 - File--> Open file from..(Desktop/CMPE-172-Proj)
