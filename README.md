@@ -19,33 +19,22 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
 - Open your Spring Tool Editor(you can install any supported Spring editor )
 - File--> Open file from..(Desktop/CMPE-172-Proj)
 - You show have your database schema and Dog table created.
-- Click Run As É Spring Boot App
-- Go to localhost:8080/dog/
+- Click Run As Spring Boot App
+- Go to localhost:8080/dog/ or localhost:8080/dog/add/
 ### Diagrams
 * UML Diagram
 
 ![Screen Shot 2020-05-07 at 8 06 59 PM](https://user-images.githubusercontent.com/38672776/81365943-614ead00-909e-11ea-9d64-83f3b8643dc7.png)
-* Class Diagram
 * Sequence Diagram
 ![Screen Shot 2020-05-05 at 10 45 26 PM](https://user-images.githubusercontent.com/38672776/81365901-3fedc100-909e-11ea-9ee6-6d522fdd5ffa.png)
-
+* Class Diagram
 
 
 ### Database Queries
 (username: root, pass:key91191)
-use testdb;
 
-CREATE TABLE IF NOT EXISTS `Dog`(
-	`id` int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
-	`name` varchar(50),
-      `breed` varchar(50),
-      `age` int,
-      `gender` varchar(10),
-      `date` varchar(50),
-      `comments` varchar(50)
-    );
-    select*from `Dog`;
-    INSERT INTO `Dog` (name, breed, age, gender, date, comments) values ("sy", "chi",1,"male","2-11-2019","N/A");
+![Screen Shot 2020-05-07 at 8 09 03 PM](https://user-images.githubusercontent.com/38672776/81366069-ab379300-909e-11ea-8511-3bb3b0a30d03.png)
+
 ### Midtier APIs
        CRUD
 ### UI Data Transport
