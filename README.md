@@ -1,7 +1,7 @@
 
 # San Jose State University
 ## Enterprise Software - CMPE 172 / Spring 2020
-## Team 11 Members : Uyen Nguyen, Dung Pham, Sara Aktar
+## Team 11 's Members : Uyen Nguyen, Dung Pham, Sara Aktar
 ### Project Introduction
 Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog shelters struggle with housing dogs and getting them adopted quickly to do so. These shelters cannot make this process faster and easier if there are not enough resources. Sometimes, they lack the proper organization and structure to determine which dogs need to be adopted or which factors contribute to this process. Our project is to create a database and use its analytics to help these shelters. We will create a mock database that will analyze which dog breeds get entered into the system the most and which get adopted the most. Some dog shelters house more dogs of certain breeds, age, or gender than others; the same applies to adoption. Dog shelters will use the analytics of the database as a way to improve their adoption rates. Our project will incorporate concepts in Enterprise Software to create this solution. In specific, we will focus on which breed comes in the most as our analytics. 
 
@@ -27,7 +27,7 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
 - Click Run As Spring Boot App
 - Go to Chrome and type localhost:8080/dog/ or localhost:8080/dog/add/
 ### Diagrams
-* UML Diagram
+* UML Class Diagram
 
 ![Screen Shot 2020-05-07 at 8 06 59 PM](https://user-images.githubusercontent.com/38672776/81365943-614ead00-909e-11ea-9d64-83f3b8643dc7.png)
 
@@ -36,7 +36,6 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
 
 ![Screen Shot 2020-05-05 at 10 45 26 PM](https://user-images.githubusercontent.com/38672776/81365901-3fedc100-909e-11ea-9ee6-6d522fdd5ffa.png)
 
-* Class Diagram
 
 
 ### Database Queries
