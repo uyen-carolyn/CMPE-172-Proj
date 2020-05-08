@@ -12,6 +12,7 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
 
 
 ### Set-Up
+   Spring Tool Editor
 ### How To Run The Project
 # Clone this repository
 - cd Desktop
@@ -25,8 +26,12 @@ Almost 3.3 million dogs enter dog shelters every year. Because of this, some dog
 * UML Diagram
 
 ![Screen Shot 2020-05-07 at 8 06 59 PM](https://user-images.githubusercontent.com/38672776/81365943-614ead00-909e-11ea-9d64-83f3b8643dc7.png)
+
 * Sequence Diagram
+
+
 ![Screen Shot 2020-05-05 at 10 45 26 PM](https://user-images.githubusercontent.com/38672776/81365901-3fedc100-909e-11ea-9ee6-6d522fdd5ffa.png)
+
 * Class Diagram
 
 
